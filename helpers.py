@@ -335,3 +335,12 @@ def plot_image_grid(images, indices, grayscale = False):
                 ax.imshow(images[idx])  
         ax.set_xticks([])
         ax.set_yticks([])
+        
+        
+#rotate around random point from center of image
+def random_rotate(img):
+    x = np.random.uniform(12)+10
+    y = np.random.uniform(12)+10
+    ang = np.random.uniform(90)-45
+    M = cv2.getRotationMatrix2D((x,y),ang,1)
+    return cv2.warpAffine(img,M,(32,32))
